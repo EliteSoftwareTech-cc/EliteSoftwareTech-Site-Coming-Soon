@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RESTRICTED NODE :: Coming Soon :: EliteSoftwareTech.cc</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/85mKDbX8/EliteSoftware-Company-Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(8, 22, 42, 0.72);
+            --glass-border: rgba(120, 200, 255, 0.35);
+            --vista-blue-top: #72b0e8;
+            --vista-blue-mid: #4e92d2;
+            --vista-blue-bottom: #2578c1;
+            --vista-blue-dark: #0b2442;
+            --elite-cyan: #00ffff;
+            --elite-turquoise: #40e0d0;
+            --amber-warn: #ffae00;
+            --crimson-alert: #ff3b3b;
+            --radius-ui: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            min-height: 100%;
+            background-color: #020b16;
+            color: #d8e8f8;
+            font-family: "Segoe UI", Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-image:
+                radial-gradient(circle at 15% 20%, rgba(0, 140, 255, 0.28) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(255, 60, 0, 0.16) 0%, transparent 42%),
+                radial-gradient(circle at 50% 45%, rgba(0, 255, 220, 0.12) 0%, transparent 65%),
+                url('https://www.transparenttextures.com/patterns/pinstriped-suit.png');
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Subtle CRT / classified scanline overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.015) 0px,
+                rgba(255, 255, 255, 0.015) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            z-index: 999;
+        }
+
+        header {
+            background: linear-gradient(to bottom, rgba(16, 40, 68, 0.96) 0%, rgba(7, 20, 38, 0.96) 100%);
+            border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+            padding: 12px 25px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.65);
+            z-index: 10;
+        }
+
+        .header-flex {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .corporate-logo {
+            height: 58px;
+            width: auto;
+            filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.4));
+        }
+
+        .brand-text h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #eaf6ff;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 14px rgba(0, 200, 255, 0.45);
+        }
+
+        .brand-text p {
+            font-size: 11px;
+            color: #79b8e6;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .telemetry-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(255, 59, 59, 0.14);
+            border: 1px solid rgba(255, 80, 80, 0.55);
+            color: #ff8e8e;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(255, 59, 59, 0.25);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff3b3b;
+            box-shadow: 0 0 8px #ff3b3b;
+            animation: pulse 1.4s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(0.75); }
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 36px 20px;
+        }
+
+        .warning-shell {
+            max-width: 780px;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(28px) saturate(180%);
+            -webkit-backdrop-filter: blur(28px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-ui);
+            box-shadow:
+                0 24px 70px rgba(0, 0, 0, 0.78),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .window-titlebar {
+            background: linear-gradient(to bottom, #3e6084 0%, #1d3958 49%, #10253c 50%, #1a3b5e 100%);
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        .window-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+            letter-spacing: 0.6px;
+        }
+
+        .window-code {
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 11px;
+            color: var(--elite-cyan);
+            opacity: 0.9;
+        }
+
+        .hazard-ribbon {
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(255, 174, 0, 0.18),
+                rgba(255, 174, 0, 0.18) 12px,
+                rgba(0, 0, 0, 0.45) 12px,
+                rgba(0, 0, 0, 0.45) 24px
+            );
+            border-bottom: 1px solid rgba(255, 174, 0, 0.45);
+            padding: 7px 18px;
+            text-align: center;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #ffd36b;
+            text-transform: uppercase;
+        }
+
+        .panel-body {
+            padding: 34px 32px;
+            text-align: center;
+        }
+
+        .emblem-frame {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.16) 0%, rgba(0, 30, 60, 0.8) 70%);
+            border: 1px solid rgba(0, 255, 255, 0.45);
+            box-shadow:
+                0 0 36px rgba(0, 210, 255, 0.25),
+                inset 0 0 18px rgba(0, 255, 255, 0.15);
+            margin-bottom: 20px;
+        }
+
+        .emblem-frame img {
+            width: 78px;
+            height: auto;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.8));
+        }
+
+        h2.ominous-headline {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 0 0 18px rgba(0, 255, 255, 0.4);
+            margin-bottom: 10px;
+        }
+
+        .subtitle-warning {
+            font-size: 14px;
+            color: #ffb86c;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            margin-bottom: 22px;
+        }
+
+        .dossier-box {
+            background: rgba(2, 10, 22, 0.72);
+            border: 1px solid rgba(114, 176, 232, 0.28);
+            border-left: 4px solid var(--amber-warn);
+            border-radius: 6px;
+            padding: 18px 20px;
+            text-align: left;
+            font-size: 13px;
+            line-height: 1.65;
+            color: #bdd4ec;
+            margin-bottom: 24px;
+        }
+
+        .dossier-box p + p {
+            margin-top: 10px;
+        }
+
+        .terminal-line {
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 12px;
+            color: #6fe7ff;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 10px 14px;
+            margin-bottom: 26px;
+            text-align: left;
+            word-break: break-all;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .aero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #ffffff;
+            background: linear-gradient(to bottom, #4ea2eb 0%, #246eb9 50%, #165191 51%, #1f64ad 100%);
+            border: 1px solid #6ec2ff;
+            box-shadow: 0 4px 16px rgba(0, 140, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+            transition: filter 0.15s ease, transform 0.1s ease;
+        }
+
+        .aero-btn:hover {
+            filter: brightness(1.15);
+            transform: translateY(-1px);
+        }
+
+        .aero-btn.secondary {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: none;
+        }
+
+        footer {
+            background: rgba(4, 12, 24, 0.94);
+            border-top: 1px solid rgba(114, 176, 232, 0.25);
+            padding: 12px 25px;
+            font-size: 11px;
+            color: #7c97b3;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-flex">
+            <div class="logo-group">
+                <img src="https://i.postimg.cc/85mKDbX8/EliteSoftware-Company-Logo.png" alt="EliteSoftwareTech Co. Logo" class="corporate-logo">
+                <div class="brand-text">
+                    <h1>EliteSoftwareTech.cc</h1>
+                    <p>Sovereign Systems &amp; Software Infrastructure</p>
+                </div>
+            </div>
+            <div class="telemetry-badge">
+                <span class="pulse-dot"></span>
+                SECTOR SEALED // PRE-DEPLOYMENT
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="warning-shell" aria-labelledby="coming-soon-heading">
+            <div class="window-titlebar">
+                <span class="window-title">ELITESOFTWARE // NODE INTERCEPT GATEWAY</span>
+                <span class="window-code">STATUS: 0x00000403_STAGING</span>
+            </div>
+            <div class="hazard-ribbon">
+                &#9888; WARNING: DORMANT SUBSYSTEM STAGING &mdash; DO NOT DISTURB THE KERNEL &#9888;
+            </div>
+
+            <div class="panel-body">
+                <div class="emblem-frame">
+                    <img src="https://i.postimg.cc/85mKDbX8/EliteSoftware-Company-Logo.png" alt="EliteSoftware Emblem">
+                </div>
+
+                <h2 id="coming-soon-heading" class="ominous-headline">Something Is Compiling Beneath the Surface</h2>
+                <p class="subtitle-warning">This EliteSoftware node has been claimed, locked, and placed under active surveillance.</p>
+
+                <div class="dossier-box">
+                    <p><strong>NOTICE TO VISITORS &amp; AUTOMATED CRAWLERS:</strong> You have reached an unsealed staging endpoint on the <strong>EliteSoftwareTech.cc</strong> network. The project assigned to this subdomain is currently undergoing silent architecture assembly behind the perimeter.</p>
+                    <p>DNS routing is armed. Telemetry is listening. When the seal breaks, this domain will expose its standalone engineering portal directly to the public network. Until then, step back from the airlock and return to the primary command station.</p>
+                </div>
+
+                <div class="terminal-line" id="node-trace">
+                    &gt; INTERCEPTED_TARGET: resolving edge route...<br>
+                    &gt; DIRECTIVE: HOLD_POSITION // LAUNCH_PENDING
+                </div>
+
+                <div class="actions">
+                    <a href="https://main.elitesoftwaretech.cc/" class="aero-btn">Return to Main Station</a>
+                    <a href="https://pidgewin32.elitesoftwaretech.cc/" class="aero-btn secondary">PidgeWin32 Portal</a>
+                    <a href="https://github.com/EliteSoftwareTech-cc" class="aero-btn secondary" target="_blank" rel="noopener">GitHub Organization</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>Copyright &copy; 2024-2026 EliteSoftware Co. Limited. All Rights Reserved.</div>
+            <div>GATEWAY: coming-soon.elitesoftwaretech.cc // ACCESS LOGGED</div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const trace = document.getElementById("node-trace");
+            const params = new URLSearchParams(window.location.search);
+            const fromHost = params.get("node") || params.get("from") || document.referrer || window.location.host;
+            trace.innerHTML =
+                "&gt; INTERCEPTED_ORIGIN: " + String(fromHost).replace(/[<>&"']/g, "") + "<br>" +
+                "&gt; CLEARANCE_STATE: SEALED // AWAITING STANDALONE DEPLOYMENT";
+        })();
+    </script>
+</body>
+</html>
